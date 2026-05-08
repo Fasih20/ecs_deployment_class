@@ -1,4 +1,363 @@
 {
-  "modules": [],
-  "generated_at": "2026-05-08T07:54:07.104Z"
+  "modules": [
+    {
+      "id": "services/cart/package",
+      "path": "services/cart/package.json",
+      "name": "CART_SERVICE_PACKAGE_CONFIG",
+      "summary": "Manages dependencies and scripts for the cart microservice.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": "services/catalog/package",
+      "path": "services/catalog/package.json",
+      "name": "CATALOG_SERVICE_PACKAGE_CONFIG",
+      "summary": "Manages dependencies and scripts for the catalog microservice.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": "services/notification/package",
+      "path": "services/notification/package.json",
+      "name": "NOTIFICATION_SERVICE_PACKAGE_CONFIG",
+      "summary": "Manages dependencies and scripts for the notification microservice.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": "services/order/package",
+      "path": "services/order/package.json",
+      "name": "ORDER_SERVICE_PACKAGE_CONFIG",
+      "summary": "Manages dependencies and scripts for the order microservice.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": "services/payment/package",
+      "path": "services/payment/package.json",
+      "name": "PAYMENT_SERVICE_PACKAGE_CONFIG",
+      "summary": "Manages dependencies and scripts for the payment microservice.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": "services/gateway/package",
+      "path": "services/gateway/package.json",
+      "name": "GATEWAY_SERVICE_PACKAGE_CONFIG",
+      "summary": "Manages dependencies and scripts for the API gateway service.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": ".repomind/.meta/ticket-index",
+      "path": ".repomind/.meta/ticket-index.json",
+      "name": "TICKET_INDEX",
+      "summary": "Stores metadata for tickets and architectural decision records.",
+      "layer": "data",
+      "dependencies": [],
+      "is_hotspot": false
+    },
+    {
+      "id": ".repomind/architecture/tech-stack",
+      "path": ".repomind/architecture/tech-stack.yml",
+      "name": "TECH_STACK",
+      "summary": "Defines the project's technology stack components.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": false
+    },
+    {
+      "id": ".repomind/config",
+      "path": ".repomind/config.yml",
+      "name": "REPOMIND_CONFIG",
+      "summary": "Configuration for project name, AI, changelog, bot, tickets, and integrations.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": false
+    },
+    {
+      "id": "apps/frontend/package",
+      "path": "apps/frontend/package.json",
+      "name": "FRONTEND_PACKAGE",
+      "summary": "Defines frontend project dependencies and scripts for Next.js application.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": false
+    },
+    {
+      "id": "apps/frontend/jsconfig",
+      "path": "apps/frontend/jsconfig.json",
+      "name": "FRONTEND_JSCONFIG",
+      "summary": "Configures JavaScript compiler options and path aliases for frontend.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": false
+    },
+    {
+      "id": "docs/ecr_delete",
+      "path": "docs/ecr_delete.md",
+      "name": "ECR_DELETE_DOC",
+      "summary": "Documentation for deleting AWS ECR repositories for various services.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": false
+    },
+    {
+      "id": "docker-compose",
+      "path": "docker-compose.yml",
+      "name": "DOCKER_COMPOSE",
+      "summary": "Defines and runs multi-container Docker application for commerce services.",
+      "layer": "infra",
+      "dependencies": [
+        "./services/catalog",
+        "./services/cart",
+        "./services/payment",
+        "./services/notification",
+        "./services/order",
+        "./services/gateway"
+      ],
+      "is_hotspot": true
+    },
+    {
+      "id": "docs/first_time_resource_create",
+      "path": "docs/first_time_resource_create.md",
+      "name": "FIRST_TIME_RESOURCE_CREATE_DOC",
+      "summary": "Instructions for initial AWS resource creation and Docker image deployment.",
+      "layer": "infra",
+      "dependencies": [
+        "./infra/terraform",
+        "./apps/frontend",
+        "./services/gateway",
+        "./services/catalog",
+        "./services/cart",
+        "./services/order",
+        "./services/payment",
+        "./services/notification"
+      ],
+      "is_hotspot": false
+    },
+    {
+      "id": "infra/github-actions/github-oidc-trust-policy",
+      "path": "infra/github-actions/github-oidc-trust-policy.json",
+      "name": "GITHUB_OIDC_TRUST_POLICY",
+      "summary": "AWS IAM policy for GitHub Actions OIDC trust.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": "infra/github-actions/github-actions-deploy-policy",
+      "path": "infra/github-actions/github-actions-deploy-policy.json",
+      "name": "GITHUB_ACTIONS_DEPLOY_POLICY",
+      "summary": "AWS IAM policy for GitHub Actions deployment permissions.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": "apps/frontend/app/api/store/orders/route",
+      "path": "apps/frontend/app/api/store/orders/route.js",
+      "name": "ORDERS_API_ROUTE",
+      "summary": "Handles API requests for store orders, proxying GET and POST.",
+      "layer": "api",
+      "dependencies": [
+        "apps/frontend/lib/storeApi"
+      ],
+      "is_hotspot": false
+    },
+    {
+      "id": "apps/frontend/app/api/store/products/[id]/route",
+      "path": "apps/frontend/app/api/store/products/[id]/route.js",
+      "name": "PRODUCT_ID_API_ROUTE",
+      "summary": "Handles API requests for a single product by ID, proxying GET.",
+      "layer": "api",
+      "dependencies": [
+        "apps/frontend/lib/storeApi"
+      ],
+      "is_hotspot": false
+    },
+    {
+      "id": "apps/frontend/app/api/store/products/route",
+      "path": "apps/frontend/app/api/store/products/route.js",
+      "name": "PRODUCTS_API_ROUTE",
+      "summary": "Handles API requests for all store products, proxying GET.",
+      "layer": "api",
+      "dependencies": [
+        "apps/frontend/lib/storeApi"
+      ],
+      "is_hotspot": false
+    },
+    {
+      "id": "apps/frontend/app/layout",
+      "path": "apps/frontend/app/layout.js",
+      "name": "ROOT_LAYOUT",
+      "summary": "Defines the root HTML layout and metadata for the Next.js application.",
+      "layer": "ui",
+      "dependencies": [
+        "./globals.css"
+      ],
+      "is_hotspot": false
+    },
+    {
+      "id": "apps/frontend/app/page",
+      "path": "apps/frontend/app/page.js",
+      "name": "HOME_PAGE",
+      "summary": "Main application page managing cart, products, orders, and UI state.",
+      "layer": "ui",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": "apps/frontend/lib/storeApi",
+      "path": "apps/frontend/lib/storeApi.js",
+      "name": "STORE_API_LIB",
+      "summary": "Utility for proxying requests to the backend gateway API.",
+      "layer": "util",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": ".repomind/.meta/settings",
+      "path": ".repomind/.meta/settings.json",
+      "name": "REPOMIND_SETTINGS",
+      "summary": "Configuration for RepoMind bot's commit behavior.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": false
+    },
+    {
+      "id": ".repomind/architecture/onboarding",
+      "path": ".repomind/architecture/onboarding.md",
+      "name": "REPOMIND_ONBOARDING",
+      "summary": "Placeholder for RepoMind's initial architecture onboarding documentation.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": false
+    },
+    {
+      "id": ".repomind/architecture/modules",
+      "path": ".repomind/architecture/modules.json",
+      "name": "REPOMIND_MODULES_METADATA",
+      "summary": "Placeholder for RepoMind's generated module metadata.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": false
+    },
+    {
+      "id": ".repomind/.meta/sync-state",
+      "path": ".repomind/.meta/sync-state.json",
+      "name": "REPOMIND_SYNC_STATE",
+      "summary": "RepoMind's internal state for tracking codebase synchronization.",
+      "layer": "infra",
+      "dependencies": [],
+      "is_hotspot": false
+    },
+    {
+      "id": "services/cart/server",
+      "path": "services/cart/server.js",
+      "name": "CART_SERVICE_SERVER",
+      "summary": "Express service for managing shopping carts, interacting with Redis and Catalog.",
+      "layer": "service",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": "services/catalog/server",
+      "path": "services/catalog/server.js",
+      "name": "CATALOG_SERVICE_SERVER",
+      "summary": "Express service providing product catalog data from PostgreSQL or in-memory.",
+      "layer": "service",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": "services/gateway/server",
+      "path": "services/gateway/server.js",
+      "name": "GATEWAY_SERVICE_SERVER",
+      "summary": "API Gateway for routing requests to various backend microservices.",
+      "layer": "api",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": "services/notification/server",
+      "path": "services/notification/server.js",
+      "name": "NOTIFICATION_SERVICE_SERVER",
+      "summary": "Express service for managing and storing order notifications in PostgreSQL.",
+      "layer": "service",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": "services/order/server",
+      "path": "services/order/server.js",
+      "name": "ORDER_SERVICE_SERVER",
+      "summary": "Express service for creating and managing orders, integrating with other services.",
+      "layer": "service",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": "services/payment/server",
+      "path": "services/payment/server.js",
+      "name": "PAYMENT_SERVICE_SERVER",
+      "summary": "Express service for processing mock payments and handling payment failures.",
+      "layer": "service",
+      "dependencies": [],
+      "is_hotspot": true
+    },
+    {
+      "id": "apps/frontend/app/api/store/cart/[cartId]/items/[productId]/route",
+      "path": "apps/frontend/app/api/store/cart/[cartId]/items/[productId]/route.js",
+      "name": "FRONTEND_API_STORE_CART_ITEM_PRODUCT_ROUTE",
+      "summary": "Frontend API route to delete a specific product from a cart.",
+      "layer": "api",
+      "dependencies": [
+        "@/lib/storeApi"
+      ],
+      "is_hotspot": false
+    },
+    {
+      "id": "apps/frontend/app/api/store/cart/[cartId]/items/route",
+      "path": "apps/frontend/app/api/store/cart/[cartId]/items/route.js",
+      "name": "FRONTEND_API_STORE_CART_ITEMS_ROUTE",
+      "summary": "Frontend API route to add items to a specific cart.",
+      "layer": "api",
+      "dependencies": [
+        "@/lib/storeApi"
+      ],
+      "is_hotspot": false
+    },
+    {
+      "id": "apps/frontend/app/api/store/cart/[cartId]/route",
+      "path": "apps/frontend/app/api/store/cart/[cartId]/route.js",
+      "name": "FRONTEND_API_STORE_CART_ROUTE",
+      "summary": "Frontend API route to get or delete a specific cart.",
+      "layer": "api",
+      "dependencies": [
+        "@/lib/storeApi"
+      ],
+      "is_hotspot": false
+    },
+    {
+      "id": "apps/frontend/app/api/store/notifications/route",
+      "path": "apps/frontend/app/api/store/notifications/route.js",
+      "name": "FRONTEND_API_STORE_NOTIFICATIONS_ROUTE",
+      "summary": "Frontend API route to fetch recent notifications.",
+      "layer": "api",
+      "dependencies": [
+        "@/lib/storeApi"
+      ],
+      "is_hotspot": false
+    }
+  ],
+  "generated_at": "2026-05-08T07:55:28.739Z",
+  "strategy": "deep-read",
+  "anchor_count": 36
 }
